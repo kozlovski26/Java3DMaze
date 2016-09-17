@@ -3,7 +3,7 @@ package view;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.Writer;
-import mazeGenerators.Maze3d;
+import algorithms.mazeGenerators.Maze3d;
 import controller.Controller;
 
 /**

@@ -4,7 +4,7 @@ import view.View;
 
 import java.io.IOException;
 
-import mazeGenerators.Maze3d;
+import algorithms.mazeGenerators.Maze3d;
 import model.Model;
 
 /**

@@ -2,7 +2,7 @@ package controller;
 
 import java.io.IOException;
 
-import mazeGenerators.Maze3d;
+import algorithms.mazeGenerators.Maze3d;
 
 import model.Model;
 import view.View;

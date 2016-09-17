@@ -12,19 +12,19 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
 
-import demo.SearchableMaze3d;
-import io.MyCompressorOutputStream;
-import io.MyDecompressorInputStream;
-import mazeGenerators.GrowingTreeGenerator;
-import mazeGenerators.LastCellChoose;
-import mazeGenerators.Maze3d;
-import mazeGenerators.Maze3dGenerator;
-import mazeGenerators.RandomCellChoose;
-import search.BFS;
-import search.CommonSearcher;
-import search.DFS;
-import search.Solution;
-import search.State;
+import algorithms.demo.SearchableMaze3d;
+import algorithms.io.MyCompressorOutputStream;
+import algorithms.io.MyDecompressorInputStream;
+import algorithms.mazeGenerators.GrowingTreeGenerator;
+import algorithms.mazeGenerators.LastCellChoose;
+import algorithms.mazeGenerators.Maze3d;
+import algorithms.mazeGenerators.Maze3dGenerator;
+import algorithms.mazeGenerators.RandomCellChoose;
+import algorithms.search.BFS;
+import algorithms.search.CommonSearcher;
+import algorithms.search.DFS;
+import algorithms.search.Solution;
+import algorithms.search.State;
 import controller.Controller;
 
 /**
@@ -85,18 +85,38 @@ public class MyModel implements Model {
 		Thread generateMazeThread = new Thread(new Runnable() {
 			@Override
 			public void run() {
-				// Maze3dGenerator mg=new SimpleMaze3dGenerator();
-				Random rand = new Random();
-				int choose = rand.nextInt(2);
+				
+			/*	Random rand = new Random();
+				int choose = rand.nextInt(2);*/
 				Maze3dGenerator mg;
-				if (choose == 0) {
-					mg = new GrowingTreeGenerator(new LastCellChoose());
-				} else {
+			/*	if (choose == 0) {*/
+					//mg = new GrowingTreeGenerator(new LastCellChoose());
 					mg = new GrowingTreeGenerator(new RandomCellChoose());
-				}
+			/*	} else {
+					mg = new GrowingTreeGenerator(new RandomCellChoose());
+				}*/
 				Maze3d maze = mg.generate(rows, cols, floor);
+				
+				BFS bfs = new BFS();
+				SearchableMaze3d searchbleMaze = new SearchableMaze3d(maze);
+				bfs.search(searchbleMaze);
+				Solution sol=bfs.getSol();
+				int i=0;
+				System.out.println(i);
+				System.out.println(sol);
+				while(sol==null)
+				{
+				maze = mg.generate(rows, cols, floor);
+				searchbleMaze = new SearchableMaze3d(maze);
+				bfs.search(searchbleMaze);
+				sol=bfs.getSol();
+				System.out.println(i);
+				System.out.println(sol);
+				
+				
+				}
 				mazes.put(name, maze);
-				controller.displayMessage("Maze " + name + " is ready");
+				controller.displayMessage("Maze " +name+ " is ready");
 			}
 		});
 		generateMazeThread.start();
@@ -231,6 +251,7 @@ public class MyModel implements Model {
 				CommonSearcher solv = algorithms.get(algorithm);
 				solved.put(name, solv.search(mymaze));
 				controller.displayMessage("Maze " + name + " Is Solved");
+			
 			}
 		});
 		thread.start();

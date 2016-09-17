@@ -1,6 +1,6 @@
 package view;
 
-import mazeGenerators.Maze3d;
+import algorithms.mazeGenerators.Maze3d;
 
 /**
  * the View interface
