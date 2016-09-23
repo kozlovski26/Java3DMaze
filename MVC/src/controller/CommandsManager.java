@@ -119,9 +119,9 @@ public class CommandsManager {
 			
 			try {
 				String name_of_maze = args[1];
-				int columns = Integer.parseInt(args[2]);
-				int floors = Integer.parseInt(args[3]);
-				int rows = Integer.parseInt(args[4]);
+				int rows = Integer.parseInt(args[2]);
+				int columns = Integer.parseInt(args[3]);
+				int floors = Integer.parseInt(args[4]);
 				model.GenerateMaze(name_of_maze, rows, columns, floors);
 			} catch (Exception e) {
 				model.displayMessage("the maze arguments you sand are invalid!,please fix the command:");

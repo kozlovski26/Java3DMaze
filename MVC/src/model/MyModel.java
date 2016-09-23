@@ -85,38 +85,18 @@ public class MyModel implements Model {
 		Thread generateMazeThread = new Thread(new Runnable() {
 			@Override
 			public void run() {
-				
-			/*	Random rand = new Random();
-				int choose = rand.nextInt(2);*/
+				// Maze3dGenerator mg=new SimpleMaze3dGenerator();
+				Random rand = new Random();
+				int choose = rand.nextInt(2);
 				Maze3dGenerator mg;
-			/*	if (choose == 0) {*/
-					//mg = new GrowingTreeGenerator(new LastCellChoose());
+				if (choose == 0) {
+					mg = new GrowingTreeGenerator(new LastCellChoose());
+				} else {
 					mg = new GrowingTreeGenerator(new RandomCellChoose());
-			/*	} else {
-					mg = new GrowingTreeGenerator(new RandomCellChoose());
-				}*/
-				Maze3d maze = mg.generate(rows, cols, floor);
-				
-				BFS bfs = new BFS();
-				SearchableMaze3d searchbleMaze = new SearchableMaze3d(maze);
-				bfs.search(searchbleMaze);
-				Solution sol=bfs.getSol();
-				int i=0;
-				System.out.println(i);
-				System.out.println(sol);
-				while(sol==null)
-				{
-				maze = mg.generate(rows, cols, floor);
-				searchbleMaze = new SearchableMaze3d(maze);
-				bfs.search(searchbleMaze);
-				sol=bfs.getSol();
-				System.out.println(i);
-				System.out.println(sol);
-				
-				
 				}
+				Maze3d maze = mg.generate(rows, cols, floor);
 				mazes.put(name, maze);
-				controller.displayMessage("Maze " +name+ " is ready");
+				controller.displayMessage("Maze " + name + " is ready");
 			}
 		});
 		generateMazeThread.start();
