@@ -1,4 +1,4 @@
-package view;
+/*package view;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -18,65 +18,62 @@ import algorithms.mazeGenerators.Position;
 
 public class MazeDisplay extends Canvas  {
 
+	
+	
+	
 	Image img = new Image (null, "Images/wall.png");
-	Image back = new Image (null, "Images/finish.png");
+	Image back = new Image (null, "Images/wall.png");
+	
 	Position startPosition ;
 	Position goalPosition ;
 	Position currentPosition ;
-	int floors, rows, cols;
-	int currentFloor;
-	Maze3d maze;
 	Position checkPos;
+	
+	Maze3d maze;
+	private int[][] mazeData;
+	int Rows;
+	int Columns;
+	int Floors;
+	int currentFloor;
 	int [][] checkZ;
 
 	Timer timer;
 	TimerTask myTask;
 
-	Character gameCharacter;
-	Character tweety;
 	
-	private int[][] mazeData;
-	//	private int[][] mazeData = {
-	//			{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
-	//			{1,0,0,0,0,0,0,0,1,1,0,1,0,0,1},
-	//			{1,0,1,1,1,1,1,0,0,1,0,1,0,1,1},
-	//			{1,1,1,0,0,0,1,0,1,1,0,1,0,0,1},
-	//			{1,0,1,0,1,1,1,0,0,0,0,1,1,0,1},
-	//			{1,1,0,0,0,1,0,0,1,1,1,1,0,0,1},
-	//			{1,0,0,1,0,0,1,0,0,0,0,1,0,1,1},
-	//			{1,0,1,1,0,1,1,0,1,1,0,0,0,1,1},
-	//			{1,0,0,0,0,0,0,0,0,1,0,1,0,0,1},
-	//			{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1}		
-	//	};
-
+	Character gameCharacter;
+	Character GoalCharacter;
+	
 
 	public void setMazeData(Maze3d maze) {
+		
 		this.maze = maze;
-		System.out.println(maze);
 		startPosition=maze.getStartPosition();
 		goalPosition = maze.getGoalPosition();
 		this.mazeData = this.maze.getCrossSectionByZ(startPosition.z);
 		
 		gameCharacter.setPos(new Position(startPosition.z, startPosition.y, startPosition.x));
-		tweety.setPos(new Position(goalPosition.z, goalPosition.y, goalPosition.x));
+		GoalCharacter.setPos(new Position(goalPosition.z, goalPosition.y, goalPosition.x));
 		
-		floors=maze.getFloors();
-		rows=maze.getRows();
-		cols=maze.getColumns();
+		
+		Rows=maze.getRows();
+		Columns=maze.getColumns();
+		Floors=maze.getFloors();
 		this.redraw();
 	}
 
+	
 	public void setZ (int z)
 	{
-		currentFloor=z;
+		this.currentFloor=z;
 		this.mazeData = this.maze.getCrossSectionByZ(z);
-//		if(mazeData[currentPosition.y][currentPosition.x]!=0)
-//		{
-//			return false;
-//
-//		}
-//		else return true;
-//		//this.redraw();
+		if(mazeData[currentPosition.getX()][currentPosition.getY()]!=0)
+	{
+	return false;
+
+		}
+		else return true;
+		this.redraw();
 	}
 
 
@@ -125,11 +122,11 @@ public class MazeDisplay extends Canvas  {
 					break;
 
 				case SWT.ARROW_DOWN:	
-					//				Position checkPoint = new Position (currentPosition.z,currentPosition.x,currentPosition.y+1);
-					//				Position [] arr = maze.getPossiblePossitions(currentPosition);
-					//				for (int i=0;i<arr.length;i++)
-					//				{
-					//					
+								Position checkPoint = new Position (currentPosition.z,currentPosition.x,currentPosition.y+1);
+									Position [] arr = maze.getPossiblePossitions(currentPosition);
+									for (int i=0;i<arr.length;i++)
+									{
+										
 					checkPos=currentPosition;
 					if(mazeData[checkPos.y+1][checkPos.x]==0)
 					{
@@ -199,4 +196,4 @@ public class MazeDisplay extends Canvas  {
 		
 		
 	}
-}
+}*/

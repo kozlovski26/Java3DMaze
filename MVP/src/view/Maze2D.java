@@ -1,10 +1,14 @@
-package view;
+/*package view;
 
 import org.eclipse.swt.events.PaintEvent;
 import org.eclipse.swt.events.PaintListener;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.widgets.Canvas;
 import org.eclipse.swt.widgets.Composite;
+
+import algorithms.mazeGenerators.Maze3d;
+import algorithms.mazeGenerators.Position;
+import algorithms.search.Solution;
 
 public class Maze2D extends MazeDisplayer{
 
@@ -68,4 +72,61 @@ public class Maze2D extends MazeDisplayer{
 		
 	}
 
+
+	@Override
+	public void setCurrentMaze(Maze3d m) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public Maze3d getCurrentMaze() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public void setCharacterPosition(Position pos) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public Position getCharacter() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public void moveForward() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void moveBackward() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void walkToExit(Solution solution) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void walkByHint(Solution solution) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
+*/
