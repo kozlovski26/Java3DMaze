@@ -34,4 +34,6 @@ public interface Model {
 
 	Maze3d getMaze(String name);
 
+	void exit();
+
 }

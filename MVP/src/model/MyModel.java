@@ -282,7 +282,12 @@ public class MyModel extends Observable implements Model {
 		notifyObservers("display_message");
 
 	}
-
+	public void exit() {
+	executor.shutdownNow();
+	this.message ="Shutdown in progress...\nPlease wait... \n";
+	setChanged();
+	notifyObservers("display_message");	
+	}
 	public String getMessage() {
 		return message;
 	}

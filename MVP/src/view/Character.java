@@ -27,8 +27,23 @@ public class Character {
 	}
 	
 	public void moveRight() {
-		pos.x++;
+		pos.y++;
 	}
 	
+	public void moveLeft() {
+		pos.y--;
+	}
+	public void moveUP() {
+		pos.x--;
+	}
+	public void moveDown() {
+		pos.x++;
+	}
+	public void moveFloorUp() {
+		pos.z++;
+	}
+	public void moveFloorDown() {
+		pos.z--;
+	}
 
 }

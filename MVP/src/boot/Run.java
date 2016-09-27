@@ -16,7 +16,7 @@ public class Run {
 	public static void main(String[] args) {
 		
 		Properties properties = PropertiesLoader.getInstance().getProperties();
-		MazeWindow view = new MazeWindow(800,800);
+		MazeWindow view = new MazeWindow(2000,2000);
 		MyModel model = new MyModel(properties);
 		Presenter presenter = new Presenter(model, view);
 		

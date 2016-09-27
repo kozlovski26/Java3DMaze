@@ -97,6 +97,7 @@ public class Maze3D extends MazeDisplayer {
 	 */
 	@Override
 	public void moveUp() {
+		
 		int x=characterX;
 		int y=characterY;
 		y=y-1;

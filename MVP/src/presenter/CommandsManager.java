@@ -5,7 +5,7 @@ import java.util.HashMap;
 import algorithms.mazeGenerators.Maze3d;
 import algorithms.search.Solution;
 import model.Model;
-
+import view.MyView;
 import view.View;
 
 /**
@@ -47,6 +47,7 @@ public class CommandsManager {
 		commands.put("display", new Display());
 		commands.put("mazesize", new MazeSize());
 		commands.put("display_message",new displaymessage());
+		commands.put("exit", new Exit());
 		return commands;
 	}
 
@@ -269,5 +270,14 @@ public class CommandsManager {
 			model.MazeSize(name);
 		}
 
+	}
+	class Exit implements Command {
+
+		@Override
+		public void doCommand(String[] args) {
+			
+			
+			model.exit();
+		}
 	}
 }

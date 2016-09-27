@@ -123,7 +123,16 @@ public class MyView extends Observable implements View, Observer {
 			e.printStackTrace();
 		}
 	}
-
+	@Override
+	public void Exit()  {
+	try {
+		out.write("bye bye");
+		out.flush();
+	} catch (IOException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	}
 
 
 }
