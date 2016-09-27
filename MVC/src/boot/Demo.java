@@ -10,7 +10,7 @@ import view.MyView;
 import view.View;
 /**
  * Demo
- * the class with the main of the mvc
+ * the class with the main of the MVC
  * @author User
  *
  */
